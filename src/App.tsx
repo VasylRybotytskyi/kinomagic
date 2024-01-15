@@ -1,19 +1,15 @@
-// App.tsx
-
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
 
-import React, { ReactNode } from "react";
-
-type AppProps = {
-  children: ReactNode;
-};
-
-const App: React.FC<AppProps> = ({ children }) => {
+const App = () => {
   return (
-    <Router basename="/kinomagic">
-      <Layout>{children}</Layout>
-    </Router>
+    <>
+      <Router basename="/kinomagic/">
+        <Routes>
+          <Route path="/*" element={<Layout />} />
+        </Routes>
+      </Router>
+    </>
   );
 };
 
